@@ -7,5 +7,5 @@ console.log('Welcome to the Brain Games!');
 const username = welcome();
 
 if (username) {
-  console.log('Hi ' + username + '!');
+  console.log(`Hi ${username}!`);
 }
