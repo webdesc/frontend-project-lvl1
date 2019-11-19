@@ -1,1 +1,5 @@
-script: make lint
+language: node_js
+node_js:
+  - node
+script:
+  - make lint
