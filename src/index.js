@@ -2,34 +2,28 @@ import readLineSync from 'readline-sync';
 
 const welcome = () => readLineSync.question('May I have your name? ');
 
-const start = (playerName) => {
-  const numbers = [1, 2, 3, 4];
+const numberOfRounds = 3;
 
-  let countCorrectAnswers = 0;
+const startGame = (game) => {
+  console.log('Welcome to the Brain Games!\nAnswer "yes" if number even otherwise answer "no"\n');
 
-  const checkCorrectAnswer = (number, answer) => {
-    if (number % 2 === 0 && answer === 'yes') {
-      return true;
-    }
-    if (number % 2 !== 0 && answer === 'no') {
-      return true;
-    }
-    return false;
-  };
+  const playerName = welcome();
 
-  for (let i = 0, lenghtNumbers = numbers.length; i < lenghtNumbers; i += 1) {
-    if (countCorrectAnswers === 3) {
-      console.log(`Congratulations, ${playerName}`);
-      return;
+  if (playerName) {
+    console.log(`Hello, ${playerName}!`);
+    for (let i = 1; i <= numberOfRounds; i += 1) {
+      const question = game.generateQuestion();
+      const answer = readLineSync.question(`Question: ${question}\nYour answer: `);
+      const correctAnswer = game.getCorrectAnswer(question, answer);
+      if (correctAnswer) {
+        console.log(`${answer} is wrong answer ;(. Correct answer was ${correctAnswer}.`);
+        return;
+      }
+      console.log('Correct!');
     }
-    const answer = readLineSync.question(`Question: ${numbers[i]}\nYour answer: `);
-    if (!checkCorrectAnswer(numbers[i], answer)) {
-      console.log(`${answer} is wrong answer ;(. Correct answer was ${(answer === 'yes' ? 'no' : 'yes')}.`);
-      return;
-    }
-    console.log('Correct!');
-    countCorrectAnswers += 1;
+
+    console.log(`Congratulations, ${playerName}`);
   }
 };
 
-export { welcome, start };
+export default startGame;

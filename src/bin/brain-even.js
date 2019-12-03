@@ -1,12 +1,8 @@
 #!/usr/bin/env node
 
-import { welcome, start } from '..';
+import startGame from '..';
+import brainEven from '../games/brain-even';
 
-console.log('Welcome to the Brain Games!\nAnswer "yes" if number even otherwise answer "no"\n');
+const game = brainEven();
 
-const playerName = welcome();
-
-if (playerName) {
-  console.log(`Hello, ${playerName}!`);
-  start(playerName);
-}
+startGame(game);
