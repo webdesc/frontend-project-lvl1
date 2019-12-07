@@ -13,11 +13,11 @@ export default () => {
       let result;
       switch (operator) {
         case '+':
-          result = +number1 + +number2; break;
+          result = Number(number1) + Number(number2); break;
         case '-':
-          result = number1 - number2; break;
+          result = Number(number1) - Number(number2); break;
         case '*':
-          result = number1 * number2; break;
+          result = Number(number1) * Number(number2); break;
         default:
           return null;
       }
