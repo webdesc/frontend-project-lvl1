@@ -7,7 +7,8 @@
     "brain-games": "dist/bin/brain-games.js",
     "brain-even": "dist/bin/brain-even.js",
     "brain-calc": "dist/bin/brain-calc.js",
-    "brain-nod": "dist/bin/brain-nod.js"
+    "brain-nod": "dist/bin/brain-nod.js",
+    "brain-progression": "dist/bin/brain-progression.js"
   },
   "files": [
     "dist"

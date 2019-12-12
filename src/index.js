@@ -5,7 +5,7 @@ const welcome = () => readLineSync.question('May I have your name? ');
 const numberOfRounds = 3;
 
 const startGame = (game) => {
-  console.log('Welcome to the Brain Games!\nAnswer "yes" if number even otherwise answer "no"\n');
+  console.log(`Welcome to the Brain Games!\n${game.description}\n`);
 
   const playerName = welcome();
 
@@ -14,9 +14,9 @@ const startGame = (game) => {
     for (let i = 1; i <= numberOfRounds; i += 1) {
       const question = game.generateQuestion();
       const answer = readLineSync.question(`Question: ${question}\nYour answer: `);
-      const correctAnswer = game.getCorrectAnswer(question, answer);
-      if (correctAnswer) {
-        console.log(`${answer} is wrong answer ;(. Correct answer was ${correctAnswer}.`);
+      const resultValidation = game.validationAnswer(question, answer);
+      if (!resultValidation.correct) {
+        console.log(`${answer} is wrong answer ;(. Correct answer was ${resultValidation.correctAnswer}.`);
         return;
       }
       console.log('Correct!');
