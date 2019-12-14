@@ -3,6 +3,4 @@
 import startGame from '..';
 import brainProgression from '../games/brain-progression';
 
-const game = brainProgression();
-
-startGame(game);
+startGame(brainProgression);

@@ -3,6 +3,4 @@
 import startGame from '..';
 import brainCalc from '../games/brain-calc';
 
-const game = brainCalc();
-
-startGame(game);
+startGame(brainCalc);
