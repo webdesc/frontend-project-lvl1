@@ -4,12 +4,12 @@
 
 [![Build Status](https://travis-ci.org/webdesc/frontend-project-lvl1.svg?branch=master)](https://travis-ci.org/webdesc/frontend-project-lvl1)
 
-[![asciicast](https://asciinema.org/a/fLYb1MCk7SQApHO3PqzIeoC1R.svg)](https://asciinema.org/a/fLYb1MCk7SQApHO3PqzIeoC1R)
+[![asciicast](https://asciinema.org/a/uI84pGEP7rKTsqDFjEO8X0f7P.svg)](https://asciinema.org/a/uI84pGEP7rKTsqDFjEO8X0f7P)
 
-[![asciicast](https://asciinema.org/a/wK51cf3A3lObQ1Seo8oe89hdS.svg)](https://asciinema.org/a/wK51cf3A3lObQ1Seo8oe89hdS)
+[![asciicast](https://asciinema.org/a/tpfZPOq7mo822nXfnzrCgopbB.svg)](https://asciinema.org/a/tpfZPOq7mo822nXfnzrCgopbB)
 
-[![asciicast](https://asciinema.org/a/vALJyajdqe0WMoQANNopRQyCq.svg)](https://asciinema.org/a/vALJyajdqe0WMoQANNopRQyCq)
+[![asciicast](https://asciinema.org/a/XyPOteQBgZV6pchN3EohUmGWQ.svg)](https://asciinema.org/a/XyPOteQBgZV6pchN3EohUmGWQ)
 
-[![asciicast](https://asciinema.org/a/Pnj5qD3G2x1GGPG6JjdDNawk5.svg)](https://asciinema.org/a/Pnj5qD3G2x1GGPG6JjdDNawk5)
+[![asciicast](https://asciinema.org/a/bh6T5NWb9OVXfxNAlfZZK70jo.svg)](https://asciinema.org/a/bh6T5NWb9OVXfxNAlfZZK70jo)
 
-[![asciicast](https://asciinema.org/a/EIqjR6j40GljkUeeoBP8Kr6Mf.svg)](https://asciinema.org/a/EIqjR6j40GljkUeeoBP8Kr6Mf)
+[![asciicast](https://asciinema.org/a/nJ0X2B9PREueJ678EwLTRucPT.svg)](https://asciinema.org/a/nJ0X2B9PREueJ678EwLTRucPT)
