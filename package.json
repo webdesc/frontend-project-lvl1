@@ -1,7 +1,8 @@
 {
   "name": "brain-games-local",
   "version": "1.0.0",
-  "description": "",
+  "description": "Console utility includes several brain games",
+  "keywords": ["brain game", "calculator", "prime numbers", "gcd", "arithmetic progression", "even numbers"],
   "main": "index.js",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
