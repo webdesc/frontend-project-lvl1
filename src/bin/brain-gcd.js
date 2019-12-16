@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
 import startGame from '..';
-import brainNod from '../games/brain-gcd';
+import brainGcd from '../games/brain-gcd';
 
-startGame(brainNod);
+startGame(brainGcd);

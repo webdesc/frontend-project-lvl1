@@ -1,13 +1,13 @@
 const numbers = [25, 100, 52, 4];
 
-const getNud = (a, b) => {
+const getGcd = (a, b) => {
   if (a > b) {
-    return (a % b) ? getNud((a % b), b) : b;
+    return (a % b) ? getGcd((a % b), b) : b;
   }
-  return (b % a) ? getNud(a, (b % a)) : a;
+  return (b % a) ? getGcd(a, (b % a)) : a;
 };
 
-const brainNod = {
+const brainGcd = {
   description: 'Find the greatest common divisor of given number',
   generateQuestion: () => {
     const number1 = numbers[Math.floor(Math.random() * numbers.length)];
@@ -16,9 +16,9 @@ const brainNod = {
   },
   validationAnswer: (question, answer) => {
     const [first, second] = question.split(' ');
-    const correctAnswer = getNud(first, second);
+    const correctAnswer = getGcd(first, second);
     return { correct: +correctAnswer === +answer, correctAnswer };
   },
 };
 
-export default brainNod;
+export default brainGcd;
