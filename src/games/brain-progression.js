@@ -1,10 +1,12 @@
+import engine from '../engine';
+
 import Progression from '../utils/progression';
 
 const progressionLength = 10;
 
 const generateRandomNumber = (range) => Math.floor(Math.random() * range) + 1;
 
-const getCorrectAnswer = (progression) => {
+const calcCorrectAnswer = (progression) => {
   const i = progression.indexOf('..');
   switch (i) {
     case 0:
@@ -16,19 +18,24 @@ const getCorrectAnswer = (progression) => {
   }
 };
 
+const description = 'What number is missing in the progression?';
+
+const generateQuestion = () => {
+  const randomStep = generateRandomNumber(progressionLength);
+  const randomIndex = generateRandomNumber(progressionLength) - 1;
+  return Progression.create(randomStep, progressionLength, randomStep)
+    .map((item, i) => ((i === randomIndex) ? '..' : item)).join` `;
+};
+
+const getCorrectAnswer = (question) => {
+  const progression = question.split(' ').map((element) => ((element === '..') ? element : Number(element)));
+  const correctAnswer = calcCorrectAnswer(progression);
+  return String(correctAnswer);
+};
 
 const brainProgression = {
-  description: 'What number is missing in the progression?',
-  generateQuestion: () => {
-    const randomStep = generateRandomNumber(progressionLength);
-    const randomIndex = generateRandomNumber(progressionLength) - 1;
-    return Progression.create(randomStep, progressionLength, randomStep)
-      .map((item, i) => ((i === randomIndex) ? '..' : item)).join` `;
-  },
-  validationAnswer: (question, answer) => {
-    const progression = question.split(' ').map((element) => ((element === '..') ? element : Number(element)));
-    const correctAnswer = getCorrectAnswer(progression);
-    return { correct: correctAnswer === +answer, correctAnswer };
+  start: () => {
+    engine.run(description, generateQuestion, getCorrectAnswer);
   },
 };
 
