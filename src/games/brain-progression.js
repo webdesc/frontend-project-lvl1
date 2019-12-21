@@ -1,10 +1,7 @@
 import engine from '../engine';
-
-import Progression from '../utils/progression';
+import Generator from '../utils/generator';
 
 const progressionLength = 10;
-
-const generateRandomNumber = (range) => Math.floor(Math.random() * range) + 1;
 
 const calcCorrectAnswer = (progression) => {
   const i = progression.indexOf('..');
@@ -21,9 +18,10 @@ const calcCorrectAnswer = (progression) => {
 const description = 'What number is missing in the progression?';
 
 const generateQuestion = () => {
-  const randomStep = generateRandomNumber(progressionLength);
-  const randomIndex = generateRandomNumber(progressionLength) - 1;
-  return Progression.create(randomStep, progressionLength, randomStep)
+  const startNumber = Generator.randomNumber(progressionLength);
+  const randomStep = Generator.randomNumber(progressionLength) + 1;
+  const randomIndex = Generator.randomNumber(progressionLength - 1);
+  return Generator.progression(startNumber, progressionLength, randomStep)
     .map((item, i) => ((i === randomIndex) ? '..' : item)).join` `;
 };
 

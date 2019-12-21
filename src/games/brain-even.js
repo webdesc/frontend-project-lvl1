@@ -1,17 +1,15 @@
 import engine from '../engine';
+import Generator from '../utils/generator';
 
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const description = 'Answer "yes" if number even otherwise answer "no"';
 
-const generateQuestion = () => numbers[Math.floor(Math.random() * numbers.length)] || null;
+const generateQuestion = () => numbers[Generator.randomNumber(numbers.length)];
 
 const isEven = (number) => number % 2 === 0;
 
-const getCorrectAnswer = (question) => {
-  const correctAnswer = isEven(question) ? 'yes' : 'no';
-  return correctAnswer;
-};
+const getCorrectAnswer = (question) => (isEven(question) ? 'yes' : 'no');
 
 const brainEven = {
   start: () => {
