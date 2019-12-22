@@ -3,12 +3,7 @@ import Generator from '../utils/generator';
 
 const numbers = [25, 100, 52, 4];
 
-const getGcd = (a, b) => {
-  if (a > b) {
-    return (a % b) ? getGcd((a % b), b) : b;
-  }
-  return (b % a) ? getGcd(a, (b % a)) : a;
-};
+const getGcd = (a, b) => ((b === 0) ? a : getGcd(b, a % b));
 
 const description = 'Find the greatest common divisor of given number';
 

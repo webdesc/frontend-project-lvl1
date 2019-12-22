@@ -1,18 +1,22 @@
 import engine from '../engine';
 import Generator from '../utils/generator';
 
-const primeNumbers = [11, 2, 17, 3, 6, 1, 7, 13, 17, 5];
+const primeNumbers = [11, 2, 17, 3, 6, 1, 7, 13, 17, 5, 239, 1321, 3559, 100000000];
 
 const isPrime = (number) => {
-  if (number === 1) {
-    return false;
+  for (let i = 2, sqrtNumber = Math.sqrt(number); i < sqrtNumber; i += 1) {
+    if (number % i === 0) {
+      return false;
+    }
   }
-  if (number === 2) {
-    return true;
-  }
-  const progression = Generator.progression(2, number - 2);
-  return progression.every((element) => number % element !== 0);
+  return true;
 };
+
+// const isPrime = (number) => {
+//   const numbers = Generator.progression(2, Math.floor(Math.sqrt(number)));
+//   return !numbers.some((item) => number % item === 0);
+// };
+
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no"';
 
 const generateQuestion = () => primeNumbers[Generator.randomNumber(primeNumbers.length)];
