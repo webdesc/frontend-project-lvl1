@@ -4,20 +4,17 @@ const numberOfRounds = 3;
 
 const welcome = 'Welcome to the Brain Games!';
 
-const getPlayerName = () => readLineSync.question('May I have your name? ');
-
 const engine = {
-  run: (description, generateQuestion, getCorrectAnswer) => {
+  run: (description, generateRound) => {
     console.log(`${welcome}\n${description}\n`);
-    const playerName = getPlayerName();
+    const playerName = readLineSync.question('May I have your name? ');
     if (playerName) {
       console.log(`Hello, ${playerName}!`);
       for (let i = 1; i <= numberOfRounds; i += 1) {
-        const question = generateQuestion();
-        const answer = readLineSync.question(`Question: ${question}\nYour answer: `);
-        const correctAnswer = getCorrectAnswer(question);
-        if (correctAnswer !== answer) {
-          console.log(`${answer} is wrong answer ;(. Correct answer was ${correctAnswer}.`);
+        const [question, correctAnswer] = generateRound();
+        const playerAnswer = readLineSync.question(`Question: ${question}\nYour answer: `);
+        if (correctAnswer !== playerAnswer) {
+          console.log(`${playerAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.`);
           return;
         }
         console.log('Correct!');

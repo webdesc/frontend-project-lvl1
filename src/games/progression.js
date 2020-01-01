@@ -1,5 +1,5 @@
 import engine from '../engine';
-import Generator from '../utils/generator';
+import generator from '../utils/generator';
 
 const progressionLength = 10;
 
@@ -18,10 +18,10 @@ const calcCorrectAnswer = (progression) => {
 const description = 'What number is missing in the progression?';
 
 const generateQuestion = () => {
-  const startNumber = Generator.randomNumber(progressionLength);
-  const randomStep = Generator.randomNumber(progressionLength) + 1;
-  const randomIndex = Generator.randomNumber(progressionLength - 1);
-  return Generator.progression(startNumber, progressionLength, randomStep)
+  const startNumber = generator.randomNumber(progressionLength);
+  const randomStep = generator.randomNumber(progressionLength) + 1;
+  const randomIndex = generator.randomNumber(progressionLength - 1);
+  return generator.progression(startNumber, progressionLength, randomStep)
     .map((item, i) => ((i === randomIndex) ? '..' : item)).join` `;
 };
 
@@ -31,10 +31,14 @@ const getCorrectAnswer = (question) => {
   return String(correctAnswer);
 };
 
-const brainProgression = {
-  start: () => {
-    engine.run(description, generateQuestion, getCorrectAnswer);
-  },
+const generateRound = () => {
+  const question = generateQuestion();
+  const correctAnswer = getCorrectAnswer(question);
+  return [question, correctAnswer];
 };
 
-export default brainProgression;
+const startBrainProgression = () => {
+  engine.run(description, generateRound);
+};
+
+export default startBrainProgression;
