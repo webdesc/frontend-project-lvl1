@@ -1,16 +1,18 @@
-import engine from '../engine';
+import runEngine from '../engine';
 import generator from '../utils/generator';
 
 const description = 'What is the result of the expression?';
 
-const range = 20;
-
 const operations = ['+', '-', '*'];
+
+const range = [0, 20];
+
+const rangeOperators = [0, operations.length];
 
 const generateQuestion = () => {
   const number1 = generator.randomNumber(range);
   const number2 = generator.randomNumber(range);
-  const operation = operations[Math.floor(Math.random() * operations.length)];
+  const operation = operations[generator.randomNumber(rangeOperators)];
   return `${number1} ${operation} ${number2}`;
 };
 
@@ -41,7 +43,7 @@ const generateRound = () => {
 };
 
 const startBrainCalc = () => {
-  engine.run(description, generateRound);
+  runEngine(description, generateRound);
 };
 
 export default startBrainCalc;

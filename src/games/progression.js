@@ -1,44 +1,32 @@
-import engine from '../engine';
+import runEngine from '../engine';
 import generator from '../utils/generator';
 
 const progressionLength = 10;
 
-const calcCorrectAnswer = (progression) => {
-  const i = progression.indexOf('..');
-  switch (i) {
-    case 0:
-      return progression[i + 1] - (progression[i + 2] - progression[i + 1]);
-    case progression.length - 1:
-      return progression[i - 1] + (progression[i - 1] - progression[i - 2]);
-    default:
-      return progression[i - 1] + ((progression[i + 1] - progression[i - 1]) / 2);
-  }
-};
-
 const description = 'What number is missing in the progression?';
 
-const generateQuestion = () => {
-  const startNumber = generator.randomNumber(progressionLength);
-  const randomStep = generator.randomNumber(progressionLength) + 1;
-  const randomIndex = generator.randomNumber(progressionLength - 1);
-  return generator.progression(startNumber, progressionLength, randomStep)
-    .map((item, i) => ((i === randomIndex) ? '..' : item)).join` `;
+const createProgression = (start, length, step = 1) => Array(length)
+  .fill(start)
+  .map((item, i, arr) => ((i === 0) ? item : arr[i - 1] + (step * i)));
+
+const generateQuestion = (start, step, index) => {
+  const progression = createProgression(start, progressionLength, step);
+  return progression.map((item, i) => ((i === index) ? '..' : item)).join` `;
 };
 
-const getCorrectAnswer = (question) => {
-  const progression = question.split(' ').map((element) => ((element === '..') ? element : Number(element)));
-  const correctAnswer = calcCorrectAnswer(progression);
-  return String(correctAnswer);
-};
+const calcCorrectAnswer = (start, step, index) => start + step * index;
 
 const generateRound = () => {
-  const question = generateQuestion();
-  const correctAnswer = getCorrectAnswer(question);
-  return [question, correctAnswer];
+  const startNumber = generator.randomNumber([0, progressionLength]);
+  const randomStep = generator.randomNumber([0, progressionLength]) + 1;
+  const randomIndex = generator.randomNumber([0, progressionLength - 1]);
+  const question = generateQuestion(startNumber, randomStep, randomIndex);
+  const correctAnswer = calcCorrectAnswer(startNumber, randomStep, randomIndex);
+  return [question, String(correctAnswer)];
 };
 
 const startBrainProgression = () => {
-  engine.run(description, generateRound);
+  runEngine(description, generateRound);
 };
 
 export default startBrainProgression;

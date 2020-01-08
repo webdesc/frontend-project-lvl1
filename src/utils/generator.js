@@ -1,8 +1,9 @@
 const generator = {
-  randomNumber: (range) => Math.floor(Math.random() * range),
-  progression: (start, length, step = 1) => Array(length)
-    .fill(start)
-    .map((item, i, arr) => ((i === 0) ? item : arr[i - 1] + (step * i))),
+  randomNumber: ([min, max]) => {
+    const minValue = Math.ceil(min);
+    const maxValue = Math.floor(max);
+    return Math.floor(Math.random() * (maxValue - minValue + 1) + minValue);
+  },
 };
 
 export default generator;

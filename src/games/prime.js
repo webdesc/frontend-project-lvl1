@@ -1,9 +1,12 @@
-import engine from '../engine';
+import runEngine from '../engine';
 import generator from '../utils/generator';
 
-const range = 100;
+const range = [1, 100];
 
 const isPrime = (number) => {
+  if (number <= 1) {
+    return false;
+  }
   if (number % 2 === 0) {
     return false;
   }
@@ -17,18 +20,14 @@ const isPrime = (number) => {
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no"';
 
-const generateQuestion = () => generator.randomNumber(range);
-
-const getCorrectAnswer = (question) => (isPrime(question) ? 'yes' : 'no');
-
 const generateRound = () => {
-  const question = generateQuestion();
-  const correctAnswer = getCorrectAnswer(question);
+  const question = generator.randomNumber(range);
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
   return [question, correctAnswer];
 };
 
 const startBrainPrime = () => {
-  engine.run(description, generateRound);
+  runEngine(description, generateRound);
 };
 
 export default startBrainPrime;
