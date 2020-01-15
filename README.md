@@ -1,5 +1,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/1f4514cb67020135095c/maintainability)](https://codeclimate.com/github/webdesc/frontend-project-lvl1/maintainability)
 
+[![Build Status](https://travis-ci.org/webdesc/frontend-project-lvl1.svg?branch=master)](https://travis-ci.org/webdesc/frontend-project-lvl1)
+
 # Brain-games
 
 Пакет Brain-games включает несколько игр: brain-calc, brain-even, brain-gcd, brain-prime, brain-progression.
@@ -48,8 +50,6 @@ $ brain-progression
 
 
 ## Asciinemas
-
-[![Build Status](https://travis-ci.org/webdesc/frontend-project-lvl1.svg?branch=master)](https://travis-ci.org/webdesc/frontend-project-lvl1)
 
 [![asciicast](https://asciinema.org/a/uI84pGEP7rKTsqDFjEO8X0f7P.svg)](https://asciinema.org/a/uI84pGEP7rKTsqDFjEO8X0f7P)
 
