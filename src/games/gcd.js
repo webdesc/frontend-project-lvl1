@@ -1,5 +1,5 @@
 import runEngine from '../engine';
-import generator from '../utils/generator';
+import generateRandomNumber from '../utils/random-number';
 
 const range = [1, 100];
 
@@ -8,8 +8,8 @@ const getGcd = (a, b) => ((b === 0) ? a : getGcd(b, a % b));
 const description = 'Find the greatest common divisor of given number';
 
 const generateQuestion = () => {
-  const number1 = generator.randomNumber(range);
-  const number2 = generator.randomNumber(range);
+  const number1 = generateRandomNumber(range);
+  const number2 = generateRandomNumber(range);
   return `${number1} ${number2}`;
 };
 

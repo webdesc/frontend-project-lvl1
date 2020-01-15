@@ -10,7 +10,6 @@
     "arithmetic progression",
     "even numbers"
   ],
-  "main": "index.js",
   "bin": {
     "brain-even": "dist/bin/even.js",
     "brain-calc": "dist/bin/calc.js",
@@ -29,6 +28,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
     "@babel/node": "^7.6.3",
@@ -36,7 +38,6 @@
     "babel-eslint": "^10.0.3",
     "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.18.2",
-    "readline-sync": "^1.4.10"
+    "eslint-plugin-import": "^2.18.2"
   }
 }

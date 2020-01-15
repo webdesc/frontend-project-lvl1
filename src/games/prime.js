@@ -1,5 +1,5 @@
 import runEngine from '../engine';
-import generator from '../utils/generator';
+import generateRandomNumber from '../utils/random-number';
 
 const range = [1, 100];
 
@@ -21,7 +21,7 @@ const isPrime = (number) => {
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no"';
 
 const generateRound = () => {
-  const question = generator.randomNumber(range);
+  const question = generateRandomNumber(range);
   const correctAnswer = isPrime(question) ? 'yes' : 'no';
   return [question, correctAnswer];
 };

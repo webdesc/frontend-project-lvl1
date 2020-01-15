@@ -1,5 +1,5 @@
 import runEngine from '../engine';
-import generator from '../utils/generator';
+import generateRandomNumber from '../utils/random-number';
 
 const description = 'What is the result of the expression?';
 
@@ -10,9 +10,9 @@ const range = [0, 20];
 const rangeOperators = [0, operations.length];
 
 const generateQuestion = () => {
-  const number1 = generator.randomNumber(range);
-  const number2 = generator.randomNumber(range);
-  const operation = operations[generator.randomNumber(rangeOperators)];
+  const number1 = generateRandomNumber(range);
+  const number2 = generateRandomNumber(range);
+  const operation = operations[generateRandomNumber(rangeOperators)];
   return `${number1} ${operation} ${number2}`;
 };
 
