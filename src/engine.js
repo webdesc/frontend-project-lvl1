@@ -5,7 +5,8 @@ const numberOfRounds = 3;
 const welcome = 'Welcome to the Brain Games!';
 
 const runEngine = (description, generateRound) => {
-  console.log(`${welcome}\n${description}\n`);
+  console.log(welcome);
+  console.log(description);
   const playerName = readLineSync.question('May I have your name? ');
   if (playerName) {
     console.log(`Hello, ${playerName}!`);
