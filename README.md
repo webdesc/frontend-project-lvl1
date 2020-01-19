@@ -47,8 +47,6 @@ $ brain-progression
 Игра `brain-progression` выводит арифметическую прогрессию (последовательность) с одним пропущенным числом. Нужно определить что это за число.
 
 
-
-
 ## Asciinemas
 
 [![asciicast](https://asciinema.org/a/uI84pGEP7rKTsqDFjEO8X0f7P.svg)](https://asciinema.org/a/uI84pGEP7rKTsqDFjEO8X0f7P)

@@ -11,7 +11,8 @@ const runEngine = (description, generateRound) => {
     console.log(`Hello, ${playerName}!`);
     for (let i = 1; i <= numberOfRounds; i += 1) {
       const [question, correctAnswer] = generateRound();
-      const playerAnswer = readLineSync.question(`Question: ${question}\nYour answer: `);
+      console.log(`Question: ${question}`);
+      const playerAnswer = readLineSync.question('Your answer: ');
       if (correctAnswer !== playerAnswer) {
         console.log(`${playerAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.`);
         return;
